@@ -35,7 +35,7 @@ Docker is both as company and a container runtime.
 Docker leverages (bring together) Linux namespaces, cgroups and capabilities into a product. Docker is a software tool chain for managing LXC containers.
 Docker is written in the ___go___ programming language by Google.
 
-- [Resource(http://etherealmind.com/basics-docker-containers-hypervisors-coreos/)]
+- [Resource](http://etherealmind.com/basics-docker-containers-hypervisors-coreos/)
 
 What is the difference between Docker and Linux LXC?
 - Docker used to reply on and depend on LXC versions.
