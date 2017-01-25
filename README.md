@@ -38,3 +38,6 @@ So Docker sees `libcontainer` as the LXC.
 Furthermore, `libcontainer` allows Docker to go cross-platform. Thus, `libcontainer` is the default execution driver for Docker.
 
 #### Docker has 3 key components
+- Container Engine
+- Registry
+- Tools
