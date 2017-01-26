@@ -35,7 +35,7 @@ Docker is both as company and a container runtime.
 Docker leverages (bring together) Linux namespaces, cgroups and capabilities into a product. Docker is a software tool chain for managing LXC containers.
 Docker is written in the ___go___ programming language by Google.
 
-- [Resource](http://etherealmind.com/basics-docker-containers-hypervisors-coreos/)
+- [Resources](http://etherealmind.com/basics-docker-containers-hypervisors-coreos/)
 
 What is the difference between Docker and Linux LXC?
 - Docker used to reply on and depend on LXC versions.
@@ -59,37 +59,40 @@ The container will work on any cloud/laptop/VM that has the Docker Engine(runtim
 
 ## Docker commands
 - Start the Docker Engine<br>
-`$ service docker start`<br>docker start/running process PID
+`$ service docker start`<br>docker start/running process PID<br>
+[`Docker Commands`](https://docs.docker.com/engine/reference/commandline/docker/)
 
 #### Container Lifecycle
-- `$ docker create` creates a container but does not start the container.
-- `$ docker run` creates and starts a container in one operation.
-- `$ docker start` starts a container so it is running.
-- `$ docker restart` stops and starts a container.
-- `$ docker pause` pauses a running container, "freezing" it in place.
-- `$ docker unpause` will unpause a running container.
-- `$ docker attach` will connect to a running container.
-- `$ docker stop` stops a running container.
-- `$ docker wait` blocks until running container stops.
-- `$ docker kill` sends a SIGKILL to a running container.
-- `$ docker rm` deletes a container.
-- `$ docker update` updates a container's resource limits.
-- `$ docker rmi` delete a container image.
+- [`docker create`](https://docs.docker.com/engine/reference/commandline/create) creates a container but does not start the container.
+- [`docker run`](https://docs.docker.com/engine/reference/commandline/run) creates and starts a container in one operation.
+- [`docker start`](https://docs.docker.com/engine/reference/commandline/start)  starts a container so it is running.
+- [`docker restart`](https://docs.docker.com/engine/reference/commandline/restart) stops and starts a container.
+- [`docker pause`](https://docs.docker.com/engine/reference/commandline/pause/) pauses a running container, "freezing" it in place.
+- [`docker unpause`](https://docs.docker.com/engine/reference/commandline/unpause/) will unpause a running container.
+- [`docker attach`](https://docs.docker.com/engine/reference/commandline/attach) will connect to a running container.
+- [`docker stop`](https://docs.docker.com/engine/reference/commandline/stop) stops a running container.
+- [`docker wait`](https://docs.docker.com/engine/reference/commandline/wait) blocks until running container stops.
+- [`docker kill`](https://docs.docker.com/engine/reference/commandline/kill) sends a SIGKILL to a running container.
+- [`docker rm`](https://docs.docker.com/engine/reference/commandline/rm) deletes a container.
+- [`docker update`](https://docs.docker.com/engine/reference/commandline/update/) updates a container's resource limits.
+- [`$ docker rmi`](https://docs.docker.com/engine/reference/commandline/rmi/) delete a container image.
 
 #### Container Info
-- `$ docker ps` shows running containers.
-- `$ docker logs` get logs from container.
-- `$ docker inspect` looks at all the info on a container. Outputs a JSON
-- `$ docker events` gets events from container.
-- `$ docker port` shows running processes in container.
-- `$ docker top` shows running processes in container.
-- `$ docker stats` shows containers' resource usage statistics.
-- `$ docker diff` shows changed files in the container's filesystem.
-- `$ docker ps -a` shows running and stopped containers.
+- [`docker ps`](https://docs.docker.com/engine/reference/commandline/ps) shows running containers.
+- [`docker logs`](https://docs.docker.com/engine/reference/commandline/logs) get logs from container.
+- [`docker inspect`](https://docs.docker.com/engine/reference/commandline/inspect) looks at all the info on a container. Outputs a JSON
+- [`docker events`](https://docs.docker.com/engine/reference/commandline/events) gets events from container.
+- [`docker port`](https://docs.docker.com/engine/reference/commandline/port) shows running processes in container.
+- [`docker top`](https://docs.docker.com/engine/reference/commandline/top) shows running processes in container.
+- [`docker stats`](https://docs.docker.com/engine/reference/commandline/stats) shows containers' resource usage statistics.
+- [`docker diff`](https://docs.docker.com/engine/reference/commandline/diff) shows changed files in the container's filesystem.
+- [`$ docker stats --all`](https://docs.docker.com/engine/reference/commandline/stats) shows a running list of containers.
+- [`$ docker ps -a`](https://docs.docker.com/engine/reference/commandline/ps/) shows running and stopped containers.
+
 
 #### Import/export
-- `$ docker cp` copies files or folders between a container and the local filesystem.
-- `$ docker export` turns container filesystem into a tarball archive stream to STDOUT
+- [`$ docker cp`](https://docs.docker.com/engine/reference/commandline/cp/) copies files or folders between a container and the local filesystem.
+- [`$ docker export`](https://docs.docker.com/engine/reference/commandline/export/) turns container filesystem into a tarball archive stream to STDOUT
 
 #### Executing commands
-- `$ docker exec` to execute a command in container.
+- [`$ docker exec`](https://docs.docker.com/engine/reference/commandline/exec/) to execute a command in container.
