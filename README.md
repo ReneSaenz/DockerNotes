@@ -26,8 +26,15 @@ We map each container to a cgroup and then we set limits on resources like CPU a
 
 * Containers are to virtual machines as threads are to processes.
 
-#### LXC - Linux Containers
-LXC is a userspace interface for the Linux kernel containment features.
+* Containers virtualize at the operating system level, Hypervisors virtualize at the hardware level.
+
+* Hypervisors abstract the operating system from hardware, containers abstract the application from the operation system.
+
+* Hypervisors consumes storage space for each instance. Containers use a single storage space plus smaller deltas for each layer and thus are much more efficient.
+
+* Containers can boot and be application-ready in less than 500ms and creates new designs opportunities for rapid scaling. Hypervisors boot according to the OS typically 20 seconds, depending on storage speed.
+
+* Containers have built-in and high value APIs for cloud orchestration. Hypervisors have lower quality APIs that have limited cloud orchestration value.
 
 
 ## What is Docker?
@@ -52,7 +59,7 @@ Furthermore, `libcontainer` allows Docker to go cross-platform. Thus, `libcontai
 
 The container will work on any cloud/laptop/VM that has the Docker Engine(runtime)
 
-NOTE:
+
 
 #### Docker Components Analogy
 * Docker Engine (Docker daemon, Docker runtime) -> Shipping yard
@@ -60,7 +67,7 @@ NOTE:
 * Docker Container -> Shipping containers.
 
 
-## Installation
+## Docker Installation
 
 #### Prerequisites
 * Linux. Minimum kernel 3.10.x or newer. Easy install script by Docker
