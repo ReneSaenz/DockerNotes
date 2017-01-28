@@ -146,3 +146,49 @@ To get started, visit Docker
 #### Cleaning up
 
 While you can use the `docker rmi` command to remove specific images, there's a tool called [docker-gc](https://github.com/spotify/docker-gc) that will clean up images that are no longer used by any containers in a safe manner.
+
+### Docker Command Examples
+
+Pull a docker image from docker repo.<br>
+```docker pull helloworld```
+
+Load an image from a file.<br>
+```docker load < img_file.tar.gz```
+
+Tag an image.<br>
+```docker tag <image id> helloworld:0.1```
+
+Save an existing image.<br>
+```docker save image:tag | gzip > my_image.tar.gz```
+
+Run an instance (container) of a Docker image.<br>
+```docker run helloworld```
+
+Import a container as an image from an image.<br>
+```cat my_container.tar.gz | docker import - my_image:my_tag```
+
+Export an existing container.<br>
+```docker export my_container | gzip > my_container.tar.gz```
+
+___Difference between loading a saved image and importing an exported container as an image?___ <br>
+Loading an image using the `load` command creates a new image including its history. Importing a container as an image using the `import` command creates a new image excluding the history which results in a smaller image size compared to loading an image.
+
+List docker images<br>
+```$ docker images```<br>
+```
+REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
+helloworld             0.1                 e3756cf362b1        35 minutes ago      153.2 MB
+renesaenz/helloworld   0.1                 e3756cf362b1        35 minutes ago      153.2 MB
+fridge                 latest              29320411ce1f        20 hours ago        128.1 MB
+nginx                  latest              abf312888d13        21 hours ago        181.5 MB
+ubuntu                 latest              e4415b714b62        12 days ago         128.1 MB
+phusion/baseimage      latest              c39664f3d4e5        4 months ago        225.6 MB
+hello-world            latest              c54a2cc56cbb        5 months ago        1.848 kB
+ubuntu                 15.04               d1b55fd07600        10 months ago       131.3 MB
+coreos/apache          latest              5a3024d885c8        2 years ago         294.4 MB```
+
+Create a container with a specific DNS.<br>
+```docker run -dns=8.8.4.4 --name=dnstest```
+
+List existing network drivers.<br>
+```docker network ls```
