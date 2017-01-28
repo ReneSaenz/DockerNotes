@@ -143,6 +143,23 @@ To get started, visit Docker
 * [`docker history`](https://docs.docker.com/engine/reference/commandline/history) shows history of image.
 * [`docker tag`](https://docs.docker.com/engine/reference/commandline/tag) tags an image to a name (local or registry).
 
+
+#### Docker Networks
+Refer to [`Docker container networking`](https://docs.docker.com/engine/userguide/networking/) and
+[`Docker networking commands`](https://docs.docker.com/engine/userguide/networking/work-with-networks/)
+
+#### Docker Data (volumes)
+What is a volume?
+* Special type of directory in a container typically referred to as "data volume"
+* Can be shaped and reused among containers.
+* Any updates to an image, does not affect the volume.
+* Data volumes are persisted even after the container is deleted.
+
+
+
+
+Refer to [`Manage data in containers`](https://docs.docker.com/engine/tutorials/dockervolumes/)
+
 #### Cleaning up
 
 While you can use the `docker rmi` command to remove specific images, there's a tool called [docker-gc](https://github.com/spotify/docker-gc) that will clean up images that are no longer used by any containers in a safe manner.
@@ -188,9 +205,3 @@ hello-world            latest              c54a2cc56cbb        5 months ago     
 ubuntu                 15.04               d1b55fd07600        10 months ago       131.3 MB
 coreos/apache          latest              5a3024d885c8        2 years ago         294.4 MB
 ```
-
-Create a container with a specific DNS.<br>
-```docker run -dns=8.8.4.4 --name=dnstest```
-
-List existing network drivers.<br>
-```docker network ls```
