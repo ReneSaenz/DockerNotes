@@ -188,3 +188,9 @@ hello-world            latest              c54a2cc56cbb        5 months ago     
 ubuntu                 15.04               d1b55fd07600        10 months ago       131.3 MB
 coreos/apache          latest              5a3024d885c8        2 years ago         294.4 MB
 ```
+
+Create a container with a specific DNS.<br>
+```docker run -dns=8.8.4.4 --name=dnstest```
+
+List existing network drivers.<br>
+```docker network ls```
