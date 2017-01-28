@@ -155,6 +155,29 @@ What is a volume?
 * Any updates to an image, does not affect the volume.
 * Data volumes are persisted even after the container is deleted.
 
+Create a data volume in a container<br>
+```
+$ docker run -v /container/dir/path <image name>
+```
+
+Customizing the host location for the data volume<br>
+pwd => host location where the source code is<br>
+/var/www => location in the container<br>
+```
+$ docker run -p 8080:3000 -v $(pwd):/var/www <image name>
+```
+
+w => working directory. Where the startup dir in the container.<br>
+```
+$ docker run -p 8080:3000 -v $(pwd):/var/www -w "/var/www" node npm start
+```
+
+When removing a container, make sure to delete the volume as well when applicable
+```
+$ docker rm -v <container id>
+```
+
+
 
 
 
