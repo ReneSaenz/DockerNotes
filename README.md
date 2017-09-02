@@ -10,32 +10,45 @@ It is an isolated instance of user space
 * Each container has a process tree.
 * Each container of network stack.
 
-#### How?
-Kernel namespaces -> feature of the Linux kernel.
+But how can we achieve this? By  **Kernel namespaces**
+Kernel Namespaces allow us to partition various different 
+aspects of the operating system
+
+- The **PID** Namespace (process tree)
+- The **net** Namespace (networking)
+- The **mnt** Namespace (filesystem and mount)
+- The **user** Namespace (user)
+
+The user namespace, allows us to have user accounts that have 
+root priviledges inside the container, but not outside of the container.
+
 From the point of view of the host, it is one process tree.
 But each container has its own kernel namespace that act like a walls.
 The walls shield each container from seeing another's container namespace.
 
-#### The PID namespace
-Namespaces allow us to partition different various aspect of the OS (pid, tree, networking, file system and mount).
+For more info [Kernel namespaces](https://docs.docker.com/engine/security/security/#kernel-namespaces)
 
 #### Control Groups (cgroups)
 Linux kernels have a feature called control groups (cgroups).
-It allows to group together resource and apply limits.
+It allows to group together resources and apply limits.
 We map each container to a cgroup and then we set limits on resources like CPU and memory.
 
-* Containers are to virtual machines as threads are to processes.
+For more info [Control Groups](https://docs.docker.com/engine/security/security/#control-groups)
 
-* Containers virtualize at the operating system level, Hypervisors virtualize at the hardware level.
+#### Capabilities
+Another kernel feature for containers. At a high level, capabilitites gives us
+fine grain control over what priviliges a user or process gets. So, instead of the "all or nothing" approach of being root or not, we use capabilitites.
+With capabilitites, we take all those priviledged of the root user, and breaks them down into smaller priviledges.
 
-* Hypervisors abstract the operating system from hardware, containers abstract the application from the operation system.
+Container root __capabilities__ 
+- CAP_AUDIT_CONTROL
+- CAP_CHOWN
+- CAP_DAC_OVERRIDE
+- CAP_KILL
+- CAP_NET_BIND_SERVICE
+- CAP_SETUID
 
-* Hypervisors consumes storage space for each instance. Containers use a single storage space plus smaller deltas for each layer and thus are much more efficient.
-
-* Containers can boot and be application-ready in less than 500ms and creates new designs opportunities for rapid scaling. Hypervisors boot according to the OS typically 20 seconds, depending on storage speed.
-
-* Containers have built-in and high value APIs for cloud orchestration. Hypervisors have lower quality APIs that have limited cloud orchestration value.
-
+For more info [Kernel Capabilities]9https://docs.docker.com/engine/security/security/#linux-kernel-capabilities)
 
 ## What is Docker?
 Docker is both as company and a container runtime.
@@ -60,11 +73,16 @@ Furthermore, `libcontainer` allows Docker to go cross-platform. Thus, `libcontai
 The container will work on any cloud/laptop/VM that has the Docker Engine(runtime)
 
 
-
 #### Docker Components Analogy
 * Docker Engine (Docker daemon, Docker runtime) -> Shipping yard
 * Docker Images -> Shipping container manifest
 * Docker Container -> Shipping containers.
+* Containers are to virtual machines as threads are to processes.
+* Containers virtualize at the operating system level, Hypervisors virtualize at the hardware level.
+* Hypervisors abstract the operating system from hardware, containers abstract the application from the operation system.
+* Hypervisors consumes storage space for each instance. Containers use a single storage space plus smaller deltas for each layer and thus are much more efficient.
+* Containers can boot and be application-ready in less than 500ms and creates new designs opportunities for rapid scaling. Hypervisors boot according to the OS typically 20 seconds, depending on storage speed.
+* Containers have built-in and high value APIs for cloud orchestration. Hypervisors have lower quality APIs that have limited cloud orchestration value.
 
 
 ## Docker Installation
@@ -213,18 +231,5 @@ Export an existing container.<br>
 ___Difference between loading a saved image and importing an exported container as an image?___ <br>
 Loading an image using the `load` command creates a new image including its history. Importing a container as an image using the `import` command creates a new image excluding the history which results in a smaller image size compared to loading an image.
 
-List docker images<br>
-```$ docker images```<br>
-
-```
-REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
-helloworld             0.1                 e3756cf362b1        35 minutes ago      153.2 MB
-renesaenz/helloworld   0.1                 e3756cf362b1        35 minutes ago      153.2 MB
-fridge                 latest              29320411ce1f        20 hours ago        128.1 MB
-nginx                  latest              abf312888d13        21 hours ago        181.5 MB
-ubuntu                 latest              e4415b714b62        12 days ago         128.1 MB
-phusion/baseimage      latest              c39664f3d4e5        4 months ago        225.6 MB
-hello-world            latest              c54a2cc56cbb        5 months ago        1.848 kB
-ubuntu                 15.04               d1b55fd07600        10 months ago       131.3 MB
-coreos/apache          latest              5a3024d885c8        2 years ago         294.4 MB
-```
+## Reference Resources
+- [Docker Security](https://docs.docker.com/engine/security/security/)
