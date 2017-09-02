@@ -48,7 +48,7 @@ Container root __capabilities__
 - CAP_NET_BIND_SERVICE
 - CAP_SETUID
 
-For more info [Kernel Capabilities]9https://docs.docker.com/engine/security/security/#linux-kernel-capabilities)
+For more info [Kernel Capabilities](https://docs.docker.com/engine/security/security/#linux-kernel-capabilities)
 
 ## What is Docker?
 Docker is both as company and a container runtime.
@@ -73,7 +73,7 @@ Furthermore, `libcontainer` allows Docker to go cross-platform. Thus, `libcontai
 The container will work on any cloud/laptop/VM that has the Docker Engine(runtime)
 
 
-#### Docker Components Analogy
+#### Docker Analogy
 * Docker Engine (Docker daemon, Docker runtime) -> Shipping yard
 * Docker Images -> Shipping container manifest
 * Docker Container -> Shipping containers.
